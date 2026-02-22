@@ -110,17 +110,22 @@ def home():
             margin-top: 20px;
         }
 
+        /* --- ОБНОВЛЕННЫЕ СТИЛИ ИКОНОК --- */
         .button-container img {
             width: 40px;
             height: 40px;
-            filter: invert(1) brightness(2); /* делает иконки белыми */
+            /* Делаем иконку белой и добавляем свечение (glow) */
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.7)); 
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
 
         .button-container img:hover {
             transform: scale(1.2);
+            /* Усиливаем свечение при наведении */
+            filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255, 255, 255, 1));
         }
+        /* ------------------------------- */
 
         footer {
             margin-top: 50px;
