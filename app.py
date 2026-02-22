@@ -22,6 +22,7 @@ def home():
             overflow: hidden;
             text-align: center;
             color: white;
+            background: #000;
         }
 
         #bgvideo {
@@ -47,6 +48,7 @@ def home():
             align-items: center;
             flex-direction: column;
             z-index: 2;
+            cursor: pointer;
             transition: opacity 1s ease;
         }
 
@@ -59,11 +61,6 @@ def home():
             font-size: 48px;
             margin: 0;
             text-shadow: 2px 2px 8px #000;
-        }
-
-        #intro p {
-            font-size: 24px;
-            margin-top: 10px;
         }
 
         .overlay {
@@ -88,64 +85,86 @@ def home():
             border: 3px solid #fff;
             margin-bottom: 20px;
             object-fit: cover;
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
         }
 
         h1.site-title {
             font-size: 48px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 8px #000;
         }
 
         p.site-desc {
             font-size: 18px;
-            margin-bottom: 30px;
-            padding: 0 10px;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            padding: 0 15px;
+            line-height: 1.5;
+            color: #ddd;
         }
 
         .button-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
             margin-top: 20px;
         }
 
-        /* --- ОБНОВЛЕННЫЕ СТИЛИ ИКОНОК --- */
+        /* --- ИКОНКИ С ГОРЯЩИМ БЕЛЫМ ЭФФЕКТОМ --- */
+        .button-container a {
+            text-decoration: none;
+            /* Анимация появления для каждой иконки */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .overlay.show .button-container a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .button-container img {
-            width: 40px;
-            height: 40px;
-            /* Делаем иконку белой и добавляем свечение (glow) */
-            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.7)); 
-            cursor: pointer;
-            transition: transform 0.3s ease, filter 0.3s ease;
+            width: 42px;
+            height: 42px;
+            /* brightness(0) делает черным, invert(1) - белым, drop-shadow - свечение */
+            filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+            transition: all 0.3s ease;
         }
 
         .button-container img:hover {
-            transform: scale(1.2);
-            /* Усиливаем свечение при наведении */
-            filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+            transform: scale(1.25);
+            filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 1));
         }
-        /* ------------------------------- */
+
+        /* Задержка появления для иконок */
+        .button-container a:nth-child(1) { transition-delay: 0.2s; }
+        .button-container a:nth-child(2) { transition-delay: 0.3s; }
+        .button-container a:nth-child(3) { transition-delay: 0.4s; }
+        .button-container a:nth-child(4) { transition-delay: 0.5s; }
+        .button-container a:nth-child(5) { transition-delay: 0.6s; }
 
         footer {
-            margin-top: 50px;
-            font-size: 14px;
-            color: #aaa;
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 480px) {
             #intro h1 { font-size: 32px; }
-            #intro p { font-size: 18px; }
             .avatar { width: 100px; height: 100px; }
             h1.site-title { font-size: 32px; }
-            p.site-desc { font-size: 16px; }
-            .button-container img { width: 30px; height: 30px; }
+            .button-container img { width: 35px; height: 35px; }
         }
     </style>
 </head>
 <body>
 
-<video autoplay loop muted id="bgvideo">
+<video autoplay loop muted playsinline id="bgvideo">
     <source src="https://r2.guns.lol/dfe3d4d8-50cb-457b-826c-332733670778.mp4" type="video/mp4">
 </video>
 
@@ -161,11 +180,11 @@ def home():
 
     <div class="button-container">
         <a href="https://discord.gg/Up9d2kwEWR" target="_blank">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzBLaLqWJZBXlMzkbnTETwPP0W89GdLjt-CA&s">
+            <img src="https://www.svgrepo.com/show/353655/discord-icon.svg">
         </a>
 
         <a href="https://t.me/RobStudio1" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/1280px-Telegram_2019_Logo.svg.png">
+            <img src="https://www.svgrepo.com/show/349526/telegram.svg">
         </a>
 
         <a href="https://guns.lol/ss1olarr" target="_blank">
@@ -173,11 +192,11 @@ def home():
         </a>
 
         <a href="https://www.youtube.com/@ss1olar" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/960px-YouTube_full-color_icon_%282017%29.svg.png">
+            <img src="https://www.svgrepo.com/show/475692/youtube-color.svg">
         </a>
 
         <a href="https://www.tiktok.com/@ss1olar" target="_blank">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoQlYwQJgNfrZLmf1DJ2ZiJ0bwpAsbd0b-Zw&s">
+            <img src="https://www.svgrepo.com/show/342294/tiktok.svg">
         </a>
     </div>
 
