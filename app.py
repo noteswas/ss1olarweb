@@ -10,10 +10,6 @@ def home():
     <title>ss1olarr</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- favicon -->
-    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
@@ -34,7 +30,6 @@ def home():
             left: 0;
             width: 100%;
             height: 100%;
-            min-height: 100vh;
             object-fit: cover;
             z-index: -2;
         }
@@ -115,10 +110,16 @@ def home():
             margin-top: 20px;
         }
 
-        .icon-only {
-            width: 60px !important;
-            height: 60px !important;
+        .button-container img {
+            width: 40px;
+            height: 40px;
+            filter: invert(1) brightness(2); /* делает иконки белыми */
             cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .button-container img:hover {
+            transform: scale(1.2);
         }
 
         footer {
@@ -131,10 +132,9 @@ def home():
             #intro h1 { font-size: 32px; }
             #intro p { font-size: 18px; }
             .avatar { width: 100px; height: 100px; }
-            .site-title { font-size: 32px; }
-            .site-desc { font-size: 16px; }
-            .icon-only { width: 50px !important; height: 50px !important; }
-            .button-container { gap: 15px; margin-top: 15px; }
+            h1.site-title { font-size: 32px; }
+            p.site-desc { font-size: 16px; }
+            .button-container img { width: 30px; height: 30px; }
         }
     </style>
 </head>
@@ -155,29 +155,24 @@ def home():
     <p class="site-desc">yo! im ssolar, a dev of many games in roblox made by ehoriliaOOO! (he doesnt pay me) yeah i dont know what else to add so bye</p>
 
     <div class="button-container">
-        <!-- Discord -->
         <a href="https://discord.gg/Up9d2kwEWR" target="_blank">
-            <img class="icon-only" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzBLaLqWJZBXlMzkbnTETwPP0W89GdLjt-CA&s">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzBLaLqWJZBXlMzkbnTETwPP0W89GdLjt-CA&s">
         </a>
 
-        <!-- Telegram -->
         <a href="https://t.me/RobStudio1" target="_blank">
-            <img class="icon-only" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/1280px-Telegram_2019_Logo.svg.png">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Telegram_2019_Logo.svg/1280px-Telegram_2019_Logo.svg.png">
         </a>
 
-        <!-- Guns -->
         <a href="https://guns.lol/ss1olarr" target="_blank">
-            <img class="icon-only" src="https://assets.guns.lol/guns_logo_no_background_cropped.png">
+            <img src="https://assets.guns.lol/guns_logo_no_background_cropped.png">
         </a>
 
-        <!-- YouTube -->
         <a href="https://www.youtube.com/@ss1olar" target="_blank">
-            <img class="icon-only" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/960px-YouTube_full-color_icon_%282017%29.svg.png">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/960px-YouTube_full-color_icon_%282017%29.svg.png">
         </a>
 
-        <!-- TikTok (оставим как обычная иконка, можно сделать без фона, если нужно) -->
         <a href="https://www.tiktok.com/@ss1olar" target="_blank">
-            <img class="icon-only" src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoQlYwQJgNfrZLmf1DJ2ZiJ0bwpAsbd0b-Zw&s">
         </a>
     </div>
 
@@ -187,12 +182,6 @@ def home():
 </div>
 
 <script>
-    function setVh() {
-        document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
-    }
-    window.addEventListener('resize', setVh);
-    setVh();
-
     const intro = document.getElementById('intro');
     const overlay = document.querySelector('.overlay');
     intro.addEventListener('click', () => {
