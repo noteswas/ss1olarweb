@@ -13,6 +13,7 @@ def home():
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+        /* --- КАСТОМНЫЙ КУРСОР --- */
         html, body {
             margin: 0;
             padding: 0;
@@ -23,6 +24,13 @@ def home():
             text-align: center;
             color: white;
             background: #000;
+            /* Устанавливаем твой курсор для всего сайта */
+            cursor: url('https://r2.guns.lol/02474717-e633-4558-8434-7b27cf998e3b.png'), auto;
+        }
+
+        /* Чтобы курсор не менялся на стандартный при наведении на ссылки и кнопки */
+        a, button, .button-container img, #intro {
+            cursor: url('https://r2.guns.lol/02474717-e633-4558-8434-7b27cf998e3b.png'), pointer !important;
         }
 
         #bgvideo {
@@ -44,11 +52,10 @@ def home():
             background: rgba(0,0,0,0.4);
             backdrop-filter: blur(15px);
             display: flex;
-            justify-content: center;
+            justify(content): center;
             align-items: center;
             flex-direction: column;
             z-index: 2;
-            cursor: pointer;
             transition: opacity 1s ease;
         }
 
@@ -111,10 +118,8 @@ def home():
             margin-top: 20px;
         }
 
-        /* --- ИКОНКИ С ГОРЯЩИМ БЕЛЫМ ЭФФЕКТОМ --- */
         .button-container a {
             text-decoration: none;
-            /* Анимация появления для каждой иконки */
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.5s ease;
@@ -128,7 +133,6 @@ def home():
         .button-container img {
             width: 42px;
             height: 42px;
-            /* brightness(0) делает черным, invert(1) - белым, drop-shadow - свечение */
             filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
             transition: all 0.3s ease;
         }
@@ -138,7 +142,7 @@ def home():
             filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(255, 255, 255, 1));
         }
 
-        /* Задержка появления для иконок */
+        /* Задержка появления иконок */
         .button-container a:nth-child(1) { transition-delay: 0.2s; }
         .button-container a:nth-child(2) { transition-delay: 0.3s; }
         .button-container a:nth-child(3) { transition-delay: 0.4s; }
@@ -182,19 +186,15 @@ def home():
         <a href="https://discord.gg/Up9d2kwEWR" target="_blank">
             <img src="https://www.svgrepo.com/show/353655/discord-icon.svg">
         </a>
-
         <a href="https://t.me/RobStudio1" target="_blank">
             <img src="https://www.svgrepo.com/show/349526/telegram.svg">
         </a>
-
         <a href="https://guns.lol/ss1olarr" target="_blank">
             <img src="https://assets.guns.lol/guns_logo_no_background_cropped.png">
         </a>
-
         <a href="https://www.youtube.com/@ss1olar" target="_blank">
             <img src="https://www.svgrepo.com/show/475692/youtube-color.svg">
         </a>
-
         <a href="https://www.tiktok.com/@ss1olar" target="_blank">
             <img src="https://www.svgrepo.com/show/342294/tiktok.svg">
         </a>
